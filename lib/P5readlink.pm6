@@ -35,7 +35,7 @@ closely as possible.
 
 =head1 PORTING CAVEATS
 
-Currently C<$!> is B<not> when Nil is returned.
+Currently C<$!> is B<not> set when Nil is returned.
 
 =head1 AUTHOR
 
