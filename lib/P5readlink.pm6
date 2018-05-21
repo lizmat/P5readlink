@@ -1,5 +1,6 @@
 use v6.c;
-unit module P5readlink:ver<0.0.1>:auth<cpan:ELIZABETH>;
+
+unit module P5readlink:ver<0.0.2>:auth<cpan:ELIZABETH>;
 
 proto sub readlink(|) is export {*}
 multi sub readlink(--> Str:D) {
@@ -32,6 +33,17 @@ P5readlink - Implement Perl 5's readlink() built-in
 
 This module tries to mimic the behaviour of the C<readlink> of Perl 5 as
 closely as possible.
+
+=head1 ORIGINAL PERL 5 DOCUMENTATION
+
+    readlink EXPR
+    readlink
+            Returns the value of a symbolic link, if symbolic links are
+            implemented. If not, raises an exception. If there is a system
+            error, returns the undefined value and sets $! (errno). If EXPR is
+            omitted, uses $_.
+
+            Portability issues: "readlink" in perlport.
 
 =head1 PORTING CAVEATS
 

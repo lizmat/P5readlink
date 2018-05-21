@@ -21,6 +21,18 @@ DESCRIPTION
 
 This module tries to mimic the behaviour of the `readlink` of Perl 5 as closely as possible.
 
+ORIGINAL PERL 5 DOCUMENTATION
+=============================
+
+    readlink EXPR
+    readlink
+            Returns the value of a symbolic link, if symbolic links are
+            implemented. If not, raises an exception. If there is a system
+            error, returns the undefined value and sets $! (errno). If EXPR is
+            omitted, uses $_.
+
+            Portability issues: "readlink" in perlport.
+
 PORTING CAVEATS
 ===============
 
