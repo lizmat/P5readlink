@@ -1,6 +1,6 @@
 use v6.c;
 
-unit module P5readlink:ver<0.0.3>:auth<cpan:ELIZABETH>;
+unit module P5readlink:ver<0.0.4>:auth<cpan:ELIZABETH>;
 
 proto sub readlink(|) is export {*}
 multi sub readlink(--> Str:D) {
