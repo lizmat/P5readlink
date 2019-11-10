@@ -1,6 +1,6 @@
 use v6.c;
 
-unit module P5readlink:ver<0.0.4>:auth<cpan:ELIZABETH>;
+unit module P5readlink:ver<0.0.7>:auth<cpan:ELIZABETH>;
 
 proto sub readlink(|) is export {*}
 multi sub readlink(--> Str:D) {
@@ -17,7 +17,7 @@ multi sub readlink(Str() $path --> Str:D) {
 
 =head1 NAME
 
-P5readlink - Implement Perl 5's readlink() built-in
+P5readlink - Implement Perl's readlink() built-in
 
 =head1 SYNOPSIS
 
@@ -31,10 +31,10 @@ P5readlink - Implement Perl 5's readlink() built-in
 
 =head1 DESCRIPTION
 
-This module tries to mimic the behaviour of the C<readlink> of Perl 5 as
+This module tries to mimic the behaviour of the C<readlink> of Perl as
 closely as possible.
 
-=head1 ORIGINAL PERL 5 DOCUMENTATION
+=head1 ORIGINAL PERL DOCUMENTATION
 
     readlink EXPR
     readlink
@@ -58,9 +58,9 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018-2019 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

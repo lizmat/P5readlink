@@ -2,6 +2,15 @@ Revision history for P5readlink
 
 {{$NEXT}}
 
+0.0.7  2019-11-10T20:27:34+01:00
+    - Fixed botched 0.0.6 release
+
+0.0.6  2019-11-10T14:38:30+01:00
+    - Fixed botched 0.0.5 release
+
+0.0.5  2019-11-10T14:35:41+01:00
+    - Changed Perl 5 to Perl
+
 0.0.4  2018-08-04T15:08:33+02:00
     - Create the symlink for testing during testing
 
