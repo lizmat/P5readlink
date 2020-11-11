@@ -1,4 +1,4 @@
-use v6.c;
+use v6.*;
 use Test;
 use P5readlink;
 
@@ -19,14 +19,14 @@ ok symlink($?FILE, $symlink), 'create the symlink';
 
 is readlink($symlink), $?FILE, 'did we get this file back as symlink on it?';
 given $symlink {
-    is readlink, $?FILE, 'did we get this file back as symlink on $_?';
+    is .&readlink, $?FILE, 'did we get this file back as symlink on $_?';
 }
 
 given "doesnotexist" {
-    is readlink, Nil, 'did we get a Nil on $_ non-existing?';
+    is .&readlink, Nil, 'did we get a Nil on $_ non-existing?';
 }
 given $?FILE {
     is readlink($?FILE), Nil, 'did we get a Nil on $_ not being a symlink?';
 }
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

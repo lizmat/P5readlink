@@ -1,7 +1,7 @@
 NAME
 ====
 
-P5readlink - Implement Perl's readlink() built-in
+Raku port of Perl's readlink() built-in
 
 SYNOPSIS
 ========
@@ -17,7 +17,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `readlink` of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's `readlink` built-in as closely as possible in the Raku Programming Language.
 
 ORIGINAL PERL DOCUMENTATION
 ===========================
@@ -34,7 +34,25 @@ ORIGINAL PERL DOCUMENTATION
 PORTING CAVEATS
 ===============
 
+$! not always set
+-----------------
+
 Currently `$!` is **not** set when Nil is returned.
+
+$_ no longer accessible from caller's scope
+-------------------------------------------
+
+In future language versions of Raku, it will become impossible to access the `$_` variable of the caller's scope, because it will not have been marked as a dynamic variable. So please consider changing:
+
+    readlink;
+
+to either:
+
+    readlink($_);
+
+or, using the subroutine as a method syntax, with the prefix `.` shortcut to use that scope's `$_` as the invocant:
+
+    .&readlink;
 
 AUTHOR
 ======
@@ -46,7 +64,7 @@ Source can be located at: https://github.com/lizmat/P5readlink . Comments and Pu
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
