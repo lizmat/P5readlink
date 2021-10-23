@@ -8,8 +8,22 @@ multi sub readlink(--> Str:D) {
 }
 multi sub readlink(Str() $path --> Str:D) {
     use nqp;  # readlink functionality only exposed as nqp ops
-    nqp::stat($path,nqp::const::STAT_EXISTS) && nqp::fileislink($path)
-      ?? nqp::readlink($path)
+    my $islink = 1;
+    my $target = Nil;
+    try {
+      $target = nqp::readlink($path);
+      CATCH {
+        when .payload ~~ m:s/^Failed to readlink file\: / {
+          $islink = 0;
+        }
+        .resume;
+      }
+    }
+    if (!nqp::stat($path,nqp::const::STAT_EXISTS) && !$islink) {
+        return Nil;
+    }
+    nqp::fileislink($path)
+      ?? $target
       !! Nil
 }
 
