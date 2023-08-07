@@ -1,10 +1,8 @@
 use v6.d;
 
-unit module P5readlink:ver<0.0.9>:auth<zef:lizmat>;
-
 proto sub readlink(|) is export {*}
 multi sub readlink(--> Str:D) {
-    readlink(CALLERS::<$_>)
+    readlink(CALLER::LEXICAL::<$_>)
 }
 multi sub readlink(Str() $path --> Str:D) {
     use nqp;  # readlink functionality only exposed as nqp ops
@@ -72,12 +70,16 @@ to use that scope's C<$_> as the invocant:
 
 Elizabeth Mattijsen <liz@raku.rocks>
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 Source can be located at: https://github.com/lizmat/P5readlink . Comments and
 Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021, 2023 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
